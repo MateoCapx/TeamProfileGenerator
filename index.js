@@ -1,14 +1,15 @@
 const inquirer = require('inquirer');  // In place to be able to use the inquirer package from NPM
 // const generateSite = require('../TeamProfileGenerator/lib/Employee'); // Grabbing this file and using it with this application
 const fs = require("fs");
-
+const generatePage = require('./src/generatePage');
+const { ValidationError } = require('jest-validate');
 
 
 return inquirer
   .prompt([
     {
       type: 'input',
-      name: 'Team Manager Name',
+      name: ' Manager Name',
       message: 'Enter Name of Team Manager (Required)',
       validate: managerName => {
         if (managerName) {
@@ -67,8 +68,8 @@ return inquirer
 
     {
         type: 'checkbox',
-        name: 'Add an engineer or an intern  or finish building my team',
-        message: 'What did you this project with? (Check all that apply) (Required)',
+        name: 'Add an engineer or intern or finish building my team',
+        message: 'Add an engineer or intern or finish building my team (Check all that apply) (Required)',
         choices: ['Engineer','Intern', 'Finish Building My Team '],
         validate: finishBuildingMyTeam => {
             if (finishBuildingMyTeam) {
@@ -79,12 +80,34 @@ return inquirer
             }
           }
       },
-
+       
    ])
-   
+
+
+// Checkbx Validation 
+
+//    if (users Selects eningeer){
+//    prompted to enter engineer’s name, ID, email, and GitHub username
+//    }
+  
+
+//    else if (users Selects intern){
+//     prompted to enter intern’s name, ID, email, and school
+//    }
+
+  
+
+ module.exports = prompt
 
 
 
+
+
+
+
+
+
+ 
    // .then(function(data){
 //     console.log(`Heyy ${JSON.stringify(data)}`)
 
