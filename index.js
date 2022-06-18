@@ -2,7 +2,7 @@ const inquirer = require('inquirer');  // In place to be able to use the inquire
 // const generateSite = require('../TeamProfileGenerator/lib/Employee'); // Grabbing this file and using it with this application
 const fs = require("fs");
 const generatePage = require('./src/generatePage');
-const { ValidationError } = require('jest-validate');
+
 
 
 return inquirer
@@ -107,7 +107,7 @@ return inquirer
 
 
 
- 
+
    // .then(function(data){
 //     console.log(`Heyy ${JSON.stringify(data)}`)
 
