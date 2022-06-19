@@ -5,6 +5,7 @@ const generatePage = require('./src/generatePage');
 
 
 
+
 return inquirer
   .prompt([
     {
@@ -23,15 +24,14 @@ return inquirer
 
 
     {
-      type: 'input',
+      type: 'number',
       name: 'Employee Id',
       message: 'Enter Employee ID (Required)',
       validate: employeeInput => {
-        if (employeeInput) {
-          return true;
+        if (typeof type !== 'number') {
+          return 'You need to enter an Employee ID!';
         } else {
-          console.log('You need to enter an Employee ID!');
-          return false;
+          return true;
         }
       }
     },
@@ -69,11 +69,11 @@ return inquirer
     {
         type: 'checkbox',
         name: 'Add an engineer or intern or finish building my team',
-        message: 'Add an engineer or intern or finish building my team (Check all that apply) (Required)',
+        message: 'Add an engineer or intern or finish building my team  (Required)',
         choices: ['Engineer','Intern', 'Finish Building My Team '],
         validate: finishBuildingMyTeam => {
-            if (finishBuildingMyTeam) {
-              return prompt();
+            if (choices[2]) {
+              console.log('Hey');
             } else {
               console.log('You need to enter a vaild office number!');
               return false;
