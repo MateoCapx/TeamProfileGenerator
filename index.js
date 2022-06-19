@@ -3,17 +3,24 @@ const inquirer = require('inquirer');  // In place to be able to use the inquire
 const fs = require("fs");
 const generatePage = require('./src/generatePage');
 
+//lib modules
+const Engineer = require('./lib/Engineer')
+const Intern = require('./lib/Intern')
+const Manager = require('./lib/Manager')
 
 
+const arrayData =[];
 
-return inquirer
-  .prompt([
+// return inquirer
+const questions = async() => {
+ const answers = await inquirer
+   .prompt([
     {
       type: 'input',
-      name: ' Manager Name',
-      message: 'Enter Name of Team Manager (Required)',
-      validate: managerName => {
-        if (managerName) {
+      name: ' Name',
+      message: 'Enter Your Name (Required)',
+      validate: enterName => {
+        if (enterName) {
           return true;
         } else {
           console.log('You need to enter a Team member name!');
@@ -24,64 +31,63 @@ return inquirer
 
 
     {
-      type: 'number',
-      name: 'Employee Id',
+      type: 'input',
+      name: 'employeeId',
       message: 'Enter Employee ID (Required)',
       validate: employeeInput => {
-        if (typeof type !== 'number') {
-          return 'You need to enter an Employee ID!';
-        } else {
-          return true;
-        }
+        const pass = employeeInput.match(/^[1-9]\d*$/) //<-- Validate a number
+        if (pass) {
+            return true;
+          }
+          return "Please enter a valid employee ID";
       }
     },
 
-  
+    
     {
       type: 'input',
-      name: 'Email Address',
+      name: 'emailAddress',
       message: 'Enter Email Address (Required)',
       validate: emailInput => {
-        if (emailInput) {
-          return true;
-        } else {
-          console.log('You need to enter a vaild Email address!');
-          return false;
-        }
+        const pass = emailInput.match(/\S+@\S+\.\S+/) //<-- Validate a email address
+        if (pass) {
+            return true;
+          }
+          return "Please enter a valid email address";
       }
     },
 
 
     {
       type: 'input',
-      name: 'Office Number',
+      name: 'officeNumber',
       message: 'Enter Office number!',
       validate: officeNumberInput => {
-        if (officeNumberInput) {
-          return true;
-        } else {
-          console.log('You need to enter a vaild office number!');
-          return false;
-        }
+        const pass = officeNumberInput.match(/^[1-9]\d*$/) //<-- Validate a number
+        if (pass) {
+            return true;
+          }
+          return "Please enter a valid office number";
       }
+      
     },
 
     {
-        type: 'checkbox',
-        name: 'Add an engineer or intern or finish building my team',
-        message: 'Add an engineer or intern or finish building my team  (Required)',
-        choices: ['Engineer','Intern', 'Finish Building My Team '],
-        validate: finishBuildingMyTeam => {
-            if (choices[2]) {
-              console.log('Hey');
-            } else {
-              console.log('You need to enter a vaild office number!');
-              return false;
-            }
-          }
-      },
+        type: 'list',
+        name: 'role',
+        message: 'what is your role?',
+        choices: ['Engineer','Intern', 'Manager'],
+      }
        
    ])
+
+   if(answers.role === 'Engineer'){
+       console.log('Hey')
+
+    }
+return answers
+}
+
 
 
 // Checkbx Validation 
@@ -97,7 +103,7 @@ return inquirer
 
   
 
- module.exports = prompt
+//  module.exports = prompt
 
 
 
