@@ -18,7 +18,7 @@ const questions = async() => {
     {
       type: 'input',
       name: ' Name',
-      message: 'Enter Your Name (Required)',
+      message: 'Enter Team Manager Name (Required)',
       validate: enterName => {
         if (enterName) {
           return true;
@@ -75,33 +75,158 @@ const questions = async() => {
     {
         type: 'list',
         name: 'role',
-        message: 'what is your role?',
-        choices: ['Engineer','Intern', 'Manager'],
+        message: 'Who Would you like on Your Team?',
+        choices: ['Engineer','Intern', 'Finish Building My Team'],
       }
        
    ])
 
+
+
+
+// Addition questions for Engineer  
    if(answers.role === 'Engineer'){
-       console.log('Hey')
+    const engineerQuestions = await inquirer
+   .prompt([
+        {
+          type: 'input',
+          name: ' Name',
+          message: 'Enter Engineer Name (Required)',
+          validate: enterName => {
+            if (enterName) {
+              return true;
+            } else {
+              console.log('You need to enter a Team member name!');
+              return false;
+            }
+          }
+        },
+
+        {
+            type: 'input',
+            name: 'employeeId',
+            message: 'Enter Engineer Employee ID (Required)',
+            validate: employeeInput => {
+              const pass = employeeInput.match(/^[1-9]\d*$/) //<-- Validate a number
+              if (pass) {
+                  return true;
+                }
+                return "Please enter a valid employee ID";
+            }
+          },
+      
+          
+          {
+            type: 'input',
+            name: 'emailAddress',
+            message: 'Enter Engineer Email Address (Required)',
+            validate: emailInput => {
+              const pass = emailInput.match(/\S+@\S+\.\S+/) //<-- Validate a email address
+              if (pass) {
+                  return true;
+                }
+                return "Please enter a valid email address";
+            }
+          },
+      
+
+    {
+        type: 'input',
+        name: 'gitHubUsername',
+        message: 'Enter Engineer GitHub Username',
+        validate: gitHubUsername => {
+          const pass = gitHubUsername.match('^(https?:\\/\\/)?'+ // protocol
+          '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+          '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+          '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+          '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+          '(\\#[-a-z\\d_]*)?$','i'); //) //<-- Validate a number
+          if (pass) {
+              return true;
+            }
+            return "Please enter a valid office number";
+        }
+        
+      },
+
+      
+    ])
+   arrayData.push(engineerQuestions),
+      console.log(arrayData)
+    
+    }
+
+
+
+
+
+    // Addition questions for intern
+    
+     if(answers.role === 'Intern'){
+    const internQuestions = await inquirer
+   .prompt([
+        {
+          type: 'input',
+          name: ' Name',
+          message: 'Enter Intern Name (Required)',
+          validate: enterName => {
+            if (enterName) {
+              return true;
+            } else {
+              console.log('You need to enter a Team member name!');
+              return false;
+            }
+          }
+        },
+
+        {
+            type: 'input',
+            name: 'employeeId',
+            message: 'Enter Intern Employee ID (Required)',
+            validate: employeeInput => {
+              const pass = employeeInput.match(/^[1-9]\d*$/) //<-- Validate a number
+              if (pass) {
+                  return true;
+                }
+                return "Please enter a valid employee ID";
+            }
+          },
+      
+          
+          {
+            type: 'input',
+            name: 'emailAddress',
+            message: 'Enter Intern Email Address (Required)',
+            validate: emailInput => {
+              const pass = emailInput.match(/\S+@\S+\.\S+/) //<-- Validate a email address
+              if (pass) {
+                  return true;
+                }
+                return "Please enter a valid email address";
+            }
+          },
+      
+
+    {
+        type: 'input',
+        name: 'internSchool',
+        message: 'Enter Intern School', 
+      },
+
+      
+    ])
+   arrayData.push(internQuestions),
+      console.log(arrayData)
+    
+    }
 
     }
-return answers
-}
+    
 
 
 
-// Checkbx Validation 
+questions();
 
-//    if (users Selects eningeer){
-//    prompted to enter engineer’s name, ID, email, and GitHub username
-//    }
-  
-
-//    else if (users Selects intern){
-//     prompted to enter intern’s name, ID, email, and school
-//    }
-
-  
 
 //  module.exports = prompt
 
