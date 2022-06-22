@@ -7,6 +7,7 @@ const generatePage = require('./src/generatePage');
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 const Manager = require('./lib/Manager');
+const Employee = require('./lib/Employee');
 
 
 
@@ -91,6 +92,17 @@ const questions = async () => {
                     }
                 },
             ])
+ 
+                const engineer = new Employee(
+                    this.name, 
+                    this.id, 
+                    this.email, 
+                    this.gitHub
+                   
+                    
+                )
+
+
         arrayData.push(answers, engineerQuestions),
             console.log(arrayData)
 
@@ -113,7 +125,7 @@ const questions = async () => {
                     }
                 },
             ])
-
+     
         arrayData.push(answers, managerQuestions),
             console.log(arrayData)
 
@@ -136,7 +148,7 @@ const questions = async () => {
     }
 }
 
-questions();
+
 
 
 async function promptQuestions() {
@@ -169,6 +181,8 @@ function createTeam(){
 //                 console.log(" Page created! Check out index.html in this directory to see it! ")
 //             }
 //         })
+
+questions();
 
 }
 
