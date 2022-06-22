@@ -2,6 +2,8 @@ const inquirer = require('inquirer');  // In place to be able to use the inquire
 // const generateSite = require('../TeamProfileGenerator/lib/Employee'); // Grabbing this file and using it with this application
 const fs = require('fs');
 const generatePage = require('./src/generatePage');
+const render = require("./src/generatePage.js");
+
 
 //lib modules
 const Engineer = require('./lib/Engineer')
@@ -190,7 +192,7 @@ promptQuestions();
 
 function createTeam() {
     console.log(" Heyyyyyyyyyyy !!!!!!!!!!!!!!!!!")
-    fs.writeFileSync('./dist/index.html', arrayData, err => {
+    fs.writeFileSync('./dist/index.html', generatePage(arrayData), err => {
         if (err) {
             console.log(err)
         } else {
@@ -202,3 +204,15 @@ function createTeam() {
     questions();
 
 }
+
+// .then(function(data){
+//     console.log(`Heyy ${JSON.stringify(data)}`)
+
+//     fs.writeFile('./README.md', generateSite(data), err=>{
+//       if(err){
+//         console.log(err)
+//       }else{
+//         console.log(" Works ")
+//       }
+//     })
+//   }
