@@ -1,4 +1,7 @@
-`<!DOCTYPE html>
+
+function generatePage(){
+    module.exports = team => {
+  return`<!DOCTYPE html>
 <html>
     <head>
         <title>Team Member</title>
@@ -136,27 +139,28 @@ html, body {
     margin-top: 10px;
 }
 
-
-
         </style>
     </head>
+
+
+
+
+    
     <body>
         <header class="main-header">
-            
             <h1 class="band-name band-name-large">My Team</h1>
         </header>
         <section class="container content-section">
            
             <div class="shop-items">
                 <div class="shop-item">
-                    <span class="shop-item-title">${this.name}</span>
+                    <span class="shop-item-title">${questions.Name}</span>
                     <span class="shop-item-title">${this.role}</span>
                     <div class="shop-item-details">
-                        ${ this.name,
-                            this.id ,
-                            this.email,
-                            this.officeNumber,
-                            this.github
+                        ${ answers.Name,
+                            answers.employeeId,
+                            answers.emailAddress,
+                            engineerQuestions.gitHub
                           } 
 
                     </div>
@@ -212,3 +216,17 @@ html, body {
       
     </body>
 </html>`
+                        }
+}
+generatePage();
+
+
+// // create the manager html
+// const generateManager = manager => {
+//     return `
+//     <div class="card employee-card">
+//     <div class="card-header">
+//   <h2 class="card-title">${manager.getName()}</h2>
+// ...
+//  `;
+// };
