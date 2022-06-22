@@ -149,27 +149,61 @@ html, body {
            
             <div class="shop-items">
                 <div class="shop-item">
-                    <span class="shop-item-title">Album 1</span>
+                    <span class="shop-item-title">${this.name}</span>
+                    <span class="shop-item-title">${this.role}</span>
                     <div class="shop-item-details">
-                        
+                        ${ this.name,
+                            this.id ,
+                            this.email,
+                            this.officeNumber,
+                            this.github
+                          } 
+
                     </div>
                 </div>
+
+                <div class="shop-items">
                 <div class="shop-item">
-                    <span class="shop-item-title">Album 2</span>
+                    <span class="shop-item-title">${this.name}</span>
+                    <span class="shop-item-title">${this.role}</span>
                     <div class="shop-item-details">
-                        
+                        ${ this.name,
+                            this.id ,
+                            this.email,
+                            this.officeNumber,
+                            this.github
+                          } 
+
                     </div>
                 </div>
+
+                <div class="shop-items">
                 <div class="shop-item">
-                    <span class="shop-item-title">Album 3</span>
+                    <span class="shop-item-title">${this.name}</span>
+                    <span class="shop-item-title">${this.role}</span>
                     <div class="shop-item-details">
-                        
+                        ${ this.name,
+                            this.id ,
+                            this.email,
+                            this.officeNumber,
+                            this.github
+                          } 
+
                     </div>
                 </div>
+
+                <div class="shop-items">
                 <div class="shop-item">
-                    <span class="shop-item-title">Album 4</span>
-                    <div class="shop-item-details">   
-                        
+                    <span class="shop-item-title">${this.name}</span>
+                    <span class="shop-item-title">${this.role}</span>
+                    <div class="shop-item-details">
+                        ${ this.name,
+                            this.id ,
+                            this.email,
+                            this.officeNumber,
+                            this.github
+                          } 
+
                     </div>
                 </div>
             </div>

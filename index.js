@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');  // In place to be able to use the inquirer package from NPM
 // const generateSite = require('../TeamProfileGenerator/lib/Employee'); // Grabbing this file and using it with this application
-const fs = require("fs");
+const fs = require('fs');
 const generatePage = require('./src/generatePage');
 
 //lib modules
@@ -19,7 +19,7 @@ const questions = async () => {
         .prompt([
             {
                 type: 'input',
-                name: ' Name',
+                name: 'Name',
                 message: 'Enter Your Name (Required)',
                 validate: enterName => {
                     if (enterName) {
@@ -75,7 +75,7 @@ const questions = async () => {
 
                 {
                     type: 'input',
-                    name: 'gitHubUsername',
+                    name: 'gitHub',
                     message: 'Enter Engineer GitHub Username',
                     validate: gitHubUsername => {
                         // validaing to make sure user inputs a correct URL 
@@ -92,18 +92,16 @@ const questions = async () => {
                     }
                 },
             ])
- 
-                const engineer = new Employee(
-                    this.name, 
-                    this.id, 
-                    this.email, 
-                    this.gitHub
-                   
-                    
-                )
+
+        const newEngineer = new Engineer(
+            answers.Name,
+            answers.employeeId,
+            answers.emailAddress,
+            engineerQuestions.gitHub,
+        )
 
 
-        arrayData.push(answers, engineerQuestions),
+        arrayData.push(newEngineer),
             console.log(arrayData)
 
     }
@@ -125,11 +123,21 @@ const questions = async () => {
                     }
                 },
             ])
-     
-        arrayData.push(answers, managerQuestions),
+
+        const newManager = new Manager(
+            answers.Name,
+            answers.employeeId,
+            answers.emailAddress,
+            managerQuestions.officeNumber,
+        )
+
+        arrayData.push(newManager),
             console.log(arrayData)
 
     }
+
+
+
 
 
     if (answers.role === 'Intern') {
@@ -142,7 +150,15 @@ const questions = async () => {
                 },
             ])
 
-        arrayData.push(answers, internQuestions),
+
+        const newIntern = new Intern(
+            answers.Name,
+            answers.employeeId,
+            answers.emailAddress,
+            internQuestions.School,
+        )
+
+        arrayData.push(newIntern),
             console.log(arrayData)
 
     }
@@ -164,7 +180,7 @@ async function promptQuestions() {
             }
         ])
     if (addMemeberAnswer.addMember === 'Add a Member') {
-        return  questions()
+        return questions()
     }
     return createTeam();
 }
@@ -172,17 +188,17 @@ async function promptQuestions() {
 promptQuestions();
 
 
-function createTeam(){
+function createTeam() {
     console.log(" Heyyyyyyyyyyy !!!!!!!!!!!!!!!!!")
-//   fs.writeFile('./dist/index.html', generatePage(arryData), err => {
-//             if (err) {
-//                 console.log(err)
-//             } else {
-//                 console.log(" Page created! Check out index.html in this directory to see it! ")
-//             }
-//         })
+    fs.writeFileSync('./dist/index.html', arrayData, err => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(" Page created! Check out index.html in this directory to see it! ")
+        }
+    })
 
-questions();
+
+    questions();
 
 }
-
