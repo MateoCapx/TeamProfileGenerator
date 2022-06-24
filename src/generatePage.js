@@ -1,6 +1,6 @@
 
 function generatePage(){
-    module.exports = team => {
+    module.exports = (newEngineer,newManager,newIntern) => {
   return`<!DOCTYPE html>
 <html>
     <head>
@@ -154,13 +154,13 @@ html, body {
            
             <div class="shop-items">
                 <div class="shop-item">
-                    <span class="shop-item-title">${questions.Name}</span>
-                    <span class="shop-item-title">${this.role}</span>
+                    <span class="shop-item-title">${newEngineer.name}</span>
+                    <span class="shop-item-title">${newEngineer.role}</span>
                     <div class="shop-item-details">
-                        ${ answers.Name,
-                            answers.employeeId,
-                            answers.emailAddress,
-                            engineerQuestions.gitHub
+                        ${  newEngineer.name,
+                            newEngineer.employeeId,
+                            newEngineer.emailAddress,
+                            newEngineer.gitHub
                           } 
 
                     </div>
@@ -168,14 +168,14 @@ html, body {
 
                 <div class="shop-items">
                 <div class="shop-item">
-                    <span class="shop-item-title">${this.name}</span>
-                    <span class="shop-item-title">${this.role}</span>
+                    <span class="shop-item-title">${newManager.name}</span>
+                    <span class="shop-item-title">${newManager.role}</span>
                     <div class="shop-item-details">
-                        ${ this.name,
-                            this.id ,
-                            this.email,
-                            this.officeNumber,
-                            this.github
+                        ${ newManager.Name,
+                            newManager.id ,
+                            newManager.email,
+                            newManager.officeNumber,
+                            newManager.github
                           } 
 
                     </div>
