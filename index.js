@@ -184,7 +184,7 @@ async function promptQuestions() {
     if (addMemeberAnswer.addMember === 'Add a Member') {
         return questions()
     }
-    return createTeam();
+    return createTeam(arrayData);
 }
 
 promptQuestions();
@@ -192,7 +192,7 @@ promptQuestions();
 
 function createTeam() {
     console.log(" Heyyyyyyyyyyy !!!!!!!!!!!!!!!!!")
-    fs.writeFileSync('./dist/index.html', generatePage(arrayData), err => {
+    fs.writeFileSync('./dist/index.html', generatePage(), err => {
         if (err) {
             console.log(err)
         } else {

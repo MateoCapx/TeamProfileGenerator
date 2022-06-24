@@ -151,10 +151,13 @@ html, body {
             <h1 class="band-name band-name-large">My Team</h1>
         </header>
         <section class="container content-section">
-           
+
+           function newEngineerDisplay(){
+                let newEngineerDisplayArray =[]
+
             <div class="shop-items">
                 <div class="shop-item">
-                    <span class="shop-item-title">${newEngineer.name}</span>
+                    <span class="shop-item-title">${newEngineer.getRole()}</span>
                     <span class="shop-item-title">${newEngineer.role}</span>
                     <div class="shop-item-details">
                         ${  newEngineer.name,
@@ -165,10 +168,13 @@ html, body {
 
                     </div>
                 </div>
+                newEngineerDisplayArray.push(newEngineerDisplay()) 
+
+           }
 
                 <div class="shop-items">
                 <div class="shop-item">
-                    <span class="shop-item-title">${newManager.name}</span>
+                    <span class="shop-item-title">${newManager.getRole()}</span>
                     <span class="shop-item-title">${newManager.role}</span>
                     <div class="shop-item-details">
                         ${ newManager.Name,
