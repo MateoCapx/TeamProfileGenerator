@@ -157,7 +157,7 @@ html, body {
 
             <div class="shop-items">
                 <div class="shop-item">
-                    <span class="shop-item-title">${newEngineer.getRole()}</span>
+                    <span class="shop-item-title">${newEngineer.name}</span>
                     <span class="shop-item-title">${newEngineer.role}</span>
                     <div class="shop-item-details">
                         ${  newEngineer.name,
@@ -171,10 +171,14 @@ html, body {
                 newEngineerDisplayArray.push(newEngineerDisplay()) 
 
            }
+           newEngineerDisplay();
+
+
+           function newManagerDisplay(){
 
                 <div class="shop-items">
                 <div class="shop-item">
-                    <span class="shop-item-title">${newManager.getRole()}</span>
+                    <span class="shop-item-title">${newManager.name}</span>
                     <span class="shop-item-title">${newManager.role}</span>
                     <div class="shop-item-details">
                         ${ newManager.Name,
@@ -186,6 +190,33 @@ html, body {
 
                     </div>
                 </div>
+                        }
+                newManagerDisplay();
+
+
+
+
+                function newInternDisplay(){
+    
+                <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">${newIntern.name}</span>
+                    <span class="shop-item-title">${newIntern.role}</span>
+                    <div class="shop-item-details">
+                        ${ newIntern.name,
+                            newIntern.id ,
+                            newIntern.email,
+                            newIntern.officeNumber,
+                            newIntern.github
+                          } 
+
+                    </div>
+                </div>
+                        }
+                newInternDisplay();
+
+
+               
 
                 <div class="shop-items">
                 <div class="shop-item">
@@ -201,21 +232,7 @@ html, body {
 
                     </div>
                 </div>
-
-                <div class="shop-items">
-                <div class="shop-item">
-                    <span class="shop-item-title">${this.name}</span>
-                    <span class="shop-item-title">${this.role}</span>
-                    <div class="shop-item-details">
-                        ${ this.name,
-                            this.id ,
-                            this.email,
-                            this.officeNumber,
-                            this.github
-                          } 
-
-                    </div>
-                </div>
+             
             </div>
             
         </section>

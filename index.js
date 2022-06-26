@@ -192,7 +192,7 @@ promptQuestions();
 
 function createTeam() {
     console.log(" Heyyyyyyyyyyy !!!!!!!!!!!!!!!!!")
-    fs.writeFileSync('./dist/index.html', generatePage(), err => {
+    fs.writeFileSync('./dist/index.html', generatePage(arrayData), err => {
         if (err) {
             console.log(err)
         } else {
