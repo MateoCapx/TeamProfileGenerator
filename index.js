@@ -73,7 +73,7 @@ const questions = async () => {
     // Addition questions for Engineer  
     if (answers.role === 'Engineer') {
         const engineerQuestions = await inquirer
-        
+
             .prompt([
 
                 {
@@ -93,25 +93,25 @@ const questions = async () => {
                         }
                         return "Please enter a valid office number";
                     }
-                    
+
                 },
-            
+
             ])
-       
+
 
         const newEngineer = new Engineer(
-        
+
             answers.Name,
             answers.employeeId,
             answers.emailAddress,
             engineerQuestions.gitHub,
-            
+
         )
-            
+
 
         arrayData.push(newEngineer),
             console.log(arrayData)
-            promptQuestions()
+        promptQuestions()
     }
 
 
@@ -133,7 +133,7 @@ const questions = async () => {
             ])
 
         const newManager = new Manager(
-           
+
             answers.Name,
             answers.employeeId,
             answers.emailAddress,
@@ -142,7 +142,7 @@ const questions = async () => {
 
         arrayData.push(newManager),
             console.log(arrayData)
-            promptQuestions()
+        promptQuestions()
     }
 
 
@@ -161,7 +161,7 @@ const questions = async () => {
 
 
         const newIntern = new Intern(
-           
+
             answers.Name,
             answers.employeeId,
             answers.emailAddress,
@@ -170,7 +170,7 @@ const questions = async () => {
 
         arrayData.push(newIntern),
             console.log(arrayData)
-            promptQuestions()
+        promptQuestions()
     }
 }
 
@@ -178,7 +178,7 @@ const questions = async () => {
 
 
 async function promptQuestions() {
-   
+
     const addMemeberAnswer = await inquirer
         .prompt([
             {
@@ -189,17 +189,17 @@ async function promptQuestions() {
             }
         ])
     if (addMemeberAnswer.addMember === 'Add a Member') {
-         questions()
-    }else{
-         createTeam(arrayData);
+        questions()
+    } else {
+        createTeam(arrayData);
     }
-    
+
 }
 questions()
 
 
 function createTeam() {
-    console.log(" Heyyyyyyyyyyy !!!!!!!!!!!!!!!!!",arrayData )
+    console.log(" Heyyyyyyyyyyy !!!!!!!!!!!!!!!!!", arrayData)
     fs.writeFileSync('./dist/index.html', generatePage(arrayData), err => {
         if (err) {
             console.log(err)

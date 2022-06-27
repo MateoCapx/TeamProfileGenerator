@@ -6,14 +6,21 @@ test('testing to see if Employee class is present', ()=>{
    expect(typeof(e)).toBe("object");
 })
 
-test('Can set name via customer arguments', ()=>{
+test('Can set name via constructor arguments', ()=>{
     const name ="Mateo";
     const e = new Employee(name);
-   expect(typeof(e.name)).toBe(name);
+   expect(typeof(e.name)).toContain("string");
 })
 
 test('Can set id via constructor arguments ', ()=>{
-    const name ="Mateo";
-    const e = new Employee(name);
-   expect(typeof(e.name)).toBe(name);
+    const testValue =27;
+    const e = new Employee("YO",testValue);
+   expect(e.id).toBe(testValue);
+})
+
+
+test('Can set email via constructor arguments ', ()=>{
+    const testValue ="test@test.com" ;
+    const e = new Employee("YO",1,testValue);
+   expect(e.email).toBe(testValue);
 })
