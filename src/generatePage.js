@@ -1,6 +1,34 @@
 
-function generatePage(){
-    module.exports = (newEngineer,newManager,newIntern) => {
+function generatePage(employeeArray){
+  function createCards(employee){
+      
+    return`
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">${employee.name}</span>
+                    <span class="shop-item-title">${employee.role}</span>
+                    <div class="shop-item-details">
+                           
+                    </div>
+                    <div class="shop-item-details">
+                       Id: ${employee.id} 
+                           
+                    </div>
+                    <div class="shop-item-details">
+                      Email: ${employee.email} 
+                        
+                    </div>
+                    <div class="shop-item-details">
+                     ${employee.github ? `Github: ${employee.github}` : ''}
+                     ${employee.School ? `School: ${employee.School}` : ''}
+                     ${employee.officeNumber ? `Office Number: ${employee.officeNumber}` : ''}
+                        
+                    </div>
+                </div>
+                </div>
+    `
+  }
+
   return`<!DOCTYPE html>
 <html>
     <head>
@@ -152,104 +180,13 @@ html, body {
         </header>
         <section class="container content-section">
 
-           function newEngineerDisplay(){
-                let newEngineerDisplayArray =[]
-
-            <div class="shop-items">
-                <div class="shop-item">
-                    <span class="shop-item-title">${newEngineer.name}</span>
-                    <span class="shop-item-title">${newEngineer.role}</span>
-                    <div class="shop-item-details">
-                        ${  newEngineer.name,
-                            newEngineer.employeeId,
-                            newEngineer.emailAddress,
-                            newEngineer.gitHub
-                          } 
-
-                    </div>
-                </div>
-                newEngineerDisplayArray.push(newEngineerDisplay()) 
-
-           }
-           newEngineerDisplay();
-
-
-           function newManagerDisplay(){
-
-                <div class="shop-items">
-                <div class="shop-item">
-                    <span class="shop-item-title">${newManager.name}</span>
-                    <span class="shop-item-title">${newManager.role}</span>
-                    <div class="shop-item-details">
-                        ${ newManager.Name,
-                            newManager.id ,
-                            newManager.email,
-                            newManager.officeNumber,
-                            newManager.github
-                          } 
-
-                    </div>
-                </div>
-                        }
-                newManagerDisplay();
-
-
-
-
-                function newInternDisplay(){
-    
-                <div class="shop-items">
-                <div class="shop-item">
-                    <span class="shop-item-title">${newIntern.name}</span>
-                    <span class="shop-item-title">${newIntern.role}</span>
-                    <div class="shop-item-details">
-                        ${ newIntern.name,
-                            newIntern.id ,
-                            newIntern.email,
-                            newIntern.officeNumber,
-                            newIntern.github
-                          } 
-
-                    </div>
-                </div>
-                        }
-                newInternDisplay();
-
-
-               
-
-                <div class="shop-items">
-                <div class="shop-item">
-                    <span class="shop-item-title">${this.name}</span>
-                    <span class="shop-item-title">${this.role}</span>
-                    <div class="shop-item-details">
-                        ${ this.name,
-                            this.id ,
-                            this.email,
-                            this.officeNumber,
-                            this.github
-                          } 
-
-                    </div>
-                </div>
-             
-            </div>
-            
+         ${employeeArray.map(employee =>(
+            createCards(employee)
+         ))}
         </section>
       
     </body>
 </html>`
                         }
-}
-generatePage();
+module.exports = generatePage;
 
-
-// // create the manager html
-// const generateManager = manager => {
-//     return `
-//     <div class="card employee-card">
-//     <div class="card-header">
-//   <h2 class="card-title">${manager.getName()}</h2>
-// ...
-//  `;
-// };

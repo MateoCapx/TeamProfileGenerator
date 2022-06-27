@@ -1,10 +1,19 @@
 const { expect } = require('expect')
-const { number } = require('yargs')
 const Employee = require('../lib/Employee')
 
-test('testing to see if Employee class is present'), ()=>{
-    const employee = new Employee('Mateo')
+test('testing to see if Employee class is present', ()=>{
+    const e = new Employee();
+   expect(typeof(e)).toBe("object");
+})
 
-    expect(employee.getId()).toEqual(expect.any(Number))
+test('Can set name via customer arguments', ()=>{
+    const name ="Mateo";
+    const e = new Employee(name);
+   expect(typeof(e.name)).toBe(name);
+})
 
-} 
+test('Can set id via constructor arguments ', ()=>{
+    const name ="Mateo";
+    const e = new Employee(name);
+   expect(typeof(e.name)).toBe(name);
+})
